@@ -26,5 +26,4 @@ export class ActivationPageComponent implements OnInit {
       );
     });
   }
-
 }

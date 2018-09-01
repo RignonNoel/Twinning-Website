@@ -12,6 +12,8 @@ export class MyModalComponent implements OnInit {
   @Input() title: string;
   @Input() typeModal: string;
   @Input() button2Label: string;
+  @Input() maxWidth = '95%';
+  @Input() activated = true;
 
   @ViewChild('modalContent') modalContent;
 

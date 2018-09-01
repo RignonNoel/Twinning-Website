@@ -1,0 +1,27 @@
+.title {
+  display: inline-block;
+  color: $main-color;
+  font-size: 25px;
+  font-weight: 900;
+  margin-bottom: 20px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid $main-color;
+
+  &--main {
+    font-weight: bold;
+    font-family: 'Merienda', cursive;
+    border: none;
+    padding: 0;
+  }
+
+  &--secondary {
+    color: $main-color;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    border: none;
+    padding: 0;
+  }
+}

@@ -1,9 +1,10 @@
-@import "../../../assets/scss/theme.scss";
+@import "../../../assets/scss/theme";
+@import "../../../assets/scss/easings";
 
 .footer {
   display: flex;
   flex-direction: column;
-  background-color: lightgrey;
+  background-color: $main-color;
   padding: 20px;
   color: white;
   text-align: center;
@@ -15,10 +16,12 @@
       padding: 3px 10px;
       color: white;
       text-decoration: none;
+      border-bottom: 1px solid $main-color;
+      transition: all $ease-inout-sine 300ms;
 
       &:hover {
         color: white;
-        border-bottom: 1px solid white;
+        border-color: white;
       }
     }
   }

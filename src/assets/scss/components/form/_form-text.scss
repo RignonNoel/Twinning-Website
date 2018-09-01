@@ -1,0 +1,12 @@
+.form-text {
+  font-size: 80%;
+  font-weight: 600;
+
+  &--right {
+    text-align: right;
+  }
+
+  &--danger {
+    color: $color-danger
+  }
+}

@@ -2,12 +2,10 @@
   <div class="login-page__content">
     <form (submit)="authenticate(loginForm)" [formGroup]="loginForm">
     <div class="login-page__content__header">
-      <img class="login-page__content__header__logo" src="assets/images/logo.png" alt="Logo" />
-
       <div>
-        <h2>
+        <h1 class="title title--main">
           Se connecter
-        </h2>
+        </h1>
       </div>
     </div>
     <div *ngFor="let error of errors" class="alert alert--danger">
@@ -34,14 +32,11 @@
     </div>
     <div class="login-page__content__actions">
       <div class="login-page__content____actions__register">
-        <a routerLink="/register">Créer un profil</a>
+        <a routerLink="/register" class="link">Créer un compte</a>
       </div>
       <div class="login-page__content____actions__login">
-        <button type="submit" class="button-icon">
-          <span class="button-icon__text">Se connecter</span>
-          <span class="button-icon__icon">
-            <i class="fa fa-caret-right"></i>
-          </span>
+        <button type="submit" class="button">
+          Se connecter
         </button>
       </div>
     </div>

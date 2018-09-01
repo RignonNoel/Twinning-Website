@@ -17,81 +17,46 @@
     height: 100vh;
 
     &__reveal {
-      background: white;
+      background: $main-background;
       position: relative;
 
       display: flex;
       flex-direction: column;
 
-      min-width: 500px;
       max-width: 90%;
       min-height: 150px;
 
       &__header{
         padding: 10px;
         font-weight: 900;
-        color: white;
-        background-color: lightgrey;
+        color: $main-color;
+        background-color: $secondary-color;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row-reverse;
+
+        &__cancel {
+          font-size: 30px;
+          font-weight: 300;
+
+          &:hover {
+            cursor: pointer;
+            font-weight: 400;
+          }
+        }
       }
 
       &__content {
-        padding: 20px;
+        padding: 20px 40px;
         flex: 1;
 
         max-height: 80vh;
         overflow: auto;
-      }
-
-      &__action {
-        display: flex;
 
         &__button {
-          flex: 1;
-          padding: 10px 15px;
           text-align: center;
-          background-color: black;
-          border: 1px solid lightgrey;
-          color: white;
-          text-decoration: none;
-
-          &:hover {
-            cursor: pointer;
-            background-color: white;
-            color: black;
-          }
-
-          &--cancel {
-            background-color: black;
-            color: white;
-            border: 1px solid lightgrey;
-
-            &:hover {
-              background-color: white;
-              color: black;
-            }
-          }
-
-          &--success {
-            background-color: black;
-            color: white;
-            border: 1px solid lightgrey;
-
-            &:hover {
-              background-color: white;
-              color: black;
-            }
-          }
-
-          &--danger {
-            background-color: black;
-            color: white;
-            border: 1px solid lightgrey;
-
-            &:hover {
-              background-color: white;
-              color: black;
-            }
-          }
+          margin: 20px 0;
+          width: 100%;
         }
       }
     }

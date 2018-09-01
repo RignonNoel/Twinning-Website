@@ -5,8 +5,22 @@ paragraph (p) or list (ul, ol)
 
 body {
   margin: 0;
+  font-family: 'Titillium Web', sans-serif;
 }
 
 *, ::after, ::before {
   box-sizing: border-box;
+}
+
+a{
+  color: $main-color;
+  font-weight: 600;
+}
+
+p {
+  margin: 10px 0;
+}
+
+ul {
+  list-style-type: square;
 }

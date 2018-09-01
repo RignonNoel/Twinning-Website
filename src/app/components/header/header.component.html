@@ -1,16 +1,12 @@
 <nav class="navbar" [class.responsive]="responsive">
-  <a class="navbar__item navbar__item--brand" href="#" (click)="closeResponsiveNavbar()">
-    <img src="assets/images/logo.png" alt="Logo" />
+  <a class="navbar__item navbar__item--brand title title--main" routerLink="/" (click)="closeResponsiveNavbar()">
+    Twinning program
   </a>
   <div class="navbar__left">
   </div>
   <div class="navbar__right">
-    <a class="navbar__item" routerLink="" (click)="closeResponsiveNavbar()">Accueil</a>
-    <a class="navbar__item" href="#" (click)="closeResponsiveNavbar()">À propos</a>
-    <a class="navbar__item" href="#" (click)="closeResponsiveNavbar()">Ressources</a>
-    <a class="navbar__item" href="#" (click)="closeResponsiveNavbar()">Blogue</a>
-    <a class="navbar__item" href="#" (click)="closeResponsiveNavbar()">Contact</a>
-    <a class="navbar__item" routerLink="/login" *ngIf="!isAuthenticated()" (click)="closeResponsiveNavbar()">Connexion</a>
+    <a class="navbar__item" routerLink="/login" *ngIf="!isAuthenticated()" (click)="closeResponsiveNavbar()">Se connecter</a>
+    <a class="navbar__item" routerLink="/register" *ngIf="!isAuthenticated()" (click)="closeResponsiveNavbar()">S'inscrire</a>
     <div *ngIf="isAuthenticated()"
          (mouseenter)="openDropdown('profile')"
          (mouseleave)="closeDropdown('profile')">

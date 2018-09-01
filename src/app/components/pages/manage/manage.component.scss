@@ -1,0 +1,70 @@
+@import '../../../../assets/scss/theme';
+
+.manage-page {
+  &__header {
+    background-color: $secondary-color;
+    height: 250px;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 30px;
+
+    &__progress {
+      font-size: 150px;
+    }
+
+    &__text {
+      color: $main-color;
+      font-weight: 600;
+    }
+ }
+
+  &__content {
+    display: flex;
+
+    &__nav {
+      margin: 20px 0 20px 20px;
+      padding: 20px 100px 20px 40px;
+      background-color: white;
+      border: 1px solid $secondary-color;
+      border-radius: 5px;
+      list-style-type: none;
+      counter-reset: index-nav;
+
+      &__item {
+        margin: 20px 0;
+        display: block;
+        counter-increment: index-nav;
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        &:before {
+          content: counter(index-nav) '. ';
+        }
+
+        &--disabled {
+          color: #a2a2a2;
+
+          &:hover {
+            cursor: default;
+          }
+        }
+      }
+    }
+
+    &__body {
+      flex: 1;
+      margin: 20px;
+      padding: 20px;
+      background-color: white;
+      border: 1px solid $secondary-color;
+      border-radius: 5px;
+
+      &__alert {
+        margin: 15px 0;
+      }
+    }
+  }
+}

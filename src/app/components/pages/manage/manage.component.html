@@ -1,0 +1,98 @@
+<div class="manage-page">
+  <div class="manage-page__header">
+    <div class="manage-page__header__progress pie-wrapper progress-30">
+      <span class="label">30<span class="smaller">%</span></span>
+      <div class="pie">
+        <div class="left-side half-circle"></div>
+        <div class="right-side half-circle"></div>
+      </div>
+    </div>
+    <div class="manage-page__header__text">
+      <p class="title title--main">Bravo,</p>
+      <p>Votre compte de parrainage est presque configuré</p>
+    </div>
+  </div>
+
+  <div class="manage-page__content">
+    <ul class="manage-page__content__nav">
+      <li>
+        <a (click)="changeStep(null)" class="manage-page__content__nav__item">Informations générales</a>
+      </li>
+      <li>
+        <a (click)="changeStep(0)" class="manage-page__content__nav__item">Questionnaire parrain</a>
+      </li>
+      <li>
+        <a (click)="changeStep(1)" class="manage-page__content__nav__item">Questionnaire filleul</a>
+      </li>
+      <li>
+        <a (click)="changeStep(2)" class="manage-page__content__nav__item manage-page__content__nav__item--disabled">Lancer la campagne de parrainage</a>
+      </li>
+      <li>
+        <a (click)="changeStep(3)" class="manage-page__content__nav__item manage-page__content__nav__item--disabled">Promouvoir la campagne</a>
+      </li>
+    </ul>
+    <div class="manage-page__content__body" *ngIf="step === null">
+      <h2 class="title title--main">
+        Informations générales
+      </h2>
+      <form>
+        <div class="form-group">
+          <label for="name" class="form-label">Nom de l'organisation:</label>
+          <input type="text" id="name" class="form-input" />
+        </div>
+        <a class="button" href="#">Sauvegarder</a>
+      </form>
+    </div>
+    <div class="manage-page__content__body" *ngIf="step === 0">
+      <h2 class="title title--main">
+        Questionnaire parrain
+      </h2>
+      <form>
+        <div class="form-group form-group--multiple">
+          <div class="form-group__item">
+            <label for="title" class="form-label">Titre:</label>
+            <input type="text" id="title" class="form-input" />
+          </div>
+          <div class="form-group__item">
+            <label for="email" class="form-label">Courriel*:</label>
+            <input type="email" id="email" class="form-input" />
+          </div>
+        </div>
+        <a class="button" href="#">Ajouter une question</a>
+      </form>
+    </div>
+    <div class="manage-page__content__body" *ngIf="step === 1">
+      <h2 class="title title--main">
+        Questionnaire filleul
+      </h2>
+      <form>
+        <div class="form-group form-group--multiple">
+          <div class="form-group__item">
+            <label for="title" class="form-label">Titre:</label>
+            <input type="text" id="title" class="form-input" />
+          </div>
+          <div class="form-group__item">
+            <label for="email" class="form-label">Courriel*:</label>
+            <input type="email" id="email" class="form-input" />
+          </div>
+        </div>
+        <a class="button" href="#">Ajouter une question</a>
+      </form>
+    </div>
+    <div class="manage-page__content__body" *ngIf="step === 2">
+      <h2 class="title title--main">
+        Commencer la promotion
+      </h2>
+      <form>
+        <div class="form-group">
+          <label for="emails" class="form-label">Liste de courriels pour invitation:</label>
+          <textarea id="emails" class="form-input form-input--textarea"></textarea>
+        </div>
+        <div class="manage-page__content__body__alert alert alert--info">
+          Chaque courriel doit etre separé par une virgule (,) ou un point-virgule (;).
+        </div>
+        <a class="button" href="#">Lancer la campagne de parrainage</a>
+      </form>
+    </div>
+  </div>
+</div>

@@ -6,6 +6,9 @@
     <div class="activation-page__content__title">
       Activation du profil en cours...
     </div>
+    <div class="activation-page__content__sub-title">
+      Veuillez patienter.
+    </div>
   </div>
   <div class="activation-page__content" *ngIf="success === false">
     <div class="activation-page__content__icon">
@@ -18,7 +21,7 @@
       Vérifiez que le profil n'ait pas déjà été activé, si ce n'est
       pas le cas n'hésitez pas à contacter l'équipe d'administration.
     </div>
-    <a class="button" routerLink="/login">
+    <a class="activation-page__content__button button" routerLink="/login">
       Se rendre sur la page de connexion
     </a>
   </div>
@@ -32,7 +35,7 @@
     <div class="activation-page__content__sub-title">
       Vous pouvez maintenant vous connecter à la plateforme.
     </div>
-    <a class="button" routerLink="/login">
+    <a class="activation-page__content__button button" routerLink="/login">
       Se rendre sur la page de connexion
     </a>
   </div>

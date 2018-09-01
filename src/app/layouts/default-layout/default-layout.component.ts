@@ -16,7 +16,7 @@ import { HeaderComponent } from '../../components/header/header.component';
       </div>
     </div>
   `,
-  styles: []
+  styleUrls: ['default-layout.component.scss']
 })
 export class DefaultLayoutComponent implements OnInit {
 

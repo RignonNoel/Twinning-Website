@@ -21,15 +21,17 @@ import { SimpleNotificationsModule } from 'angular2-notifications';
 import { BackgroundLayoutComponent } from './layouts/background-layout/background-layout.component';
 import { Error403Component } from './components/error-403/error-403.component';
 import { DefaultLayoutComponent } from './layouts/default-layout/default-layout.component';
-import {MyModalService} from "./services/my-modal/my-modal.service";
-import {MyModalComponent} from "./components/my-modal/my-modal.component";
-import {HeaderComponent} from "./components/header/header.component";
-import {FooterComponent} from "./components/footer/footer.component";
-import {MyModalOpenDirective} from "./directives/my-modal-open-directive.directive";
-import {PermissionsDirective} from "./directives/permissions.directive";
-import {ProfileService} from "./services/profile.service";
-import {AuthenticatedDirective} from "./directives/authenticated.directive";
-import {UserService} from "./services/user.service";
+import {MyModalService} from './services/my-modal/my-modal.service';
+import {MyModalComponent} from './components/my-modal/my-modal.component';
+import {HeaderComponent} from './components/header/header.component';
+import {FooterComponent} from './components/footer/footer.component';
+import {MyModalOpenDirective} from './directives/my-modal-open-directive.directive';
+import {PermissionsDirective} from './directives/permissions.directive';
+import {ProfileService} from './services/profile.service';
+import {AuthenticatedDirective} from './directives/authenticated.directive';
+import {UserService} from './services/user.service';
+import {Error404Component} from './components/error-404/error-404.component';
+import { ManageComponent } from './components/pages/manage/manage.component';
 
 const appRoutes = [
   {
@@ -41,25 +43,9 @@ const appRoutes = [
         component: HomePageComponent,
       },
       {
-        path: 'register/confirmation',
-        component: RegisterConfirmationPageComponent,
+        path: 'manage',
+        component: ManageComponent,
       },
-      {
-        path: 'register/activation/:token',
-        component: ActivationPageComponent,
-      },
-      {
-        path: 'forgot-password/confirmation',
-        component: ForgotPasswordConfirmationPageComponent,
-      },
-      {
-        path: 'reset-password/:token',
-        component: ResetPasswordPageComponent,
-      },
-      {
-        path: '403',
-        component: Error403Component,
-      }
     ]
   },
   {
@@ -86,6 +72,30 @@ const appRoutes = [
         path: 'forgot-password',
         component: ForgotPasswordPageComponent,
       },
+      {
+        path: 'register/confirmation',
+        component: RegisterConfirmationPageComponent,
+      },
+      {
+        path: 'register/activation/:token',
+        component: ActivationPageComponent,
+      },
+      {
+        path: 'forgot-password/confirmation',
+        component: ForgotPasswordConfirmationPageComponent,
+      },
+      {
+        path: 'reset-password/:token',
+        component: ResetPasswordPageComponent,
+      },
+      {
+        path: '403',
+        component: Error403Component,
+      },
+      {
+        path: '**',
+        component: Error404Component,
+      }
     ]
   },
 ];
@@ -107,10 +117,12 @@ const appRoutes = [
     ForgotPasswordConfirmationPageComponent,
     HomePageComponent,
     Error403Component,
+    Error404Component,
     ActivationPageComponent,
     PermissionsDirective,
     MyModalOpenDirective,
     AuthenticatedDirective,
+    ManageComponent,
   ],
   imports: [
     BrowserModule,

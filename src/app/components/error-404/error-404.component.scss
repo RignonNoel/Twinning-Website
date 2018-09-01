@@ -1,9 +1,11 @@
-@import "../../../../assets/scss/_theme.scss";
+@import '../../../assets/scss/theme';
 
-.forgot-password-page {
+.error-404-page{
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  text-align: center;
 
   &__content {
     margin: 50px 0 100px 0;
@@ -12,14 +14,16 @@
     background-color: white;
     box-shadow: 10px 10px 20px darken($secondary-color, 10);
 
-    &__header {
-      text-align: center;
+    &__title {
+      font-size: 40px;
     }
 
-    &__actions {
-      margin-top: 40px;
-      display: flex;
-      justify-content: space-between;
+    &__subtitle {
+      font-size: 25px;
+    }
+
+    &__explanations {
+      margin-top: 50px;
     }
   }
 }
