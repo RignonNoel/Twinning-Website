@@ -8,6 +8,7 @@
   text-decoration: none;
   font-weight: bold;
   transition: all $ease-inout-sine 300ms;
+  min-width: 200px;
 
   &:hover {
     background-color: darken($main-color, 15);

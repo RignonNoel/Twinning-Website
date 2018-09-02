@@ -3,7 +3,7 @@
 .manage-page {
   &__header {
     background-color: $secondary-color;
-    height: 250px;
+    min-height: 250px;
     color: white;
     display: flex;
     align-items: center;
@@ -23,7 +23,7 @@
     display: flex;
 
     &__nav {
-      margin: 20px 0 20px 20px;
+      margin: 20px;
       padding: 20px 100px 20px 40px;
       background-color: white;
       border: 1px solid $secondary-color;
@@ -65,6 +65,27 @@
       &__alert {
         margin: 15px 0;
       }
+    }
+  }
+}
+
+
+@media only screen and (max-width: 1200px) {
+  .manage-page {
+    &__content {
+      flex-direction: column;
+
+      &__nav {
+        padding: 20px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .manage-page {
+    &__header {
+      flex-direction: column-reverse;
     }
   }
 }
