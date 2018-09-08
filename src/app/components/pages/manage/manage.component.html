@@ -19,16 +19,13 @@
         <a (click)="changeStep(null)" class="manage-page__content__nav__item">Informations générales</a>
       </li>
       <li>
-        <a (click)="changeStep(0)" class="manage-page__content__nav__item">Questionnaire parrain</a>
+        <a (click)="changeStep(0)" class="manage-page__content__nav__item">Questionnaire</a>
       </li>
       <li>
-        <a (click)="changeStep(1)" class="manage-page__content__nav__item">Questionnaire filleul</a>
+        <a (click)="changeStep(1)" class="manage-page__content__nav__item manage-page__content__nav__item--disabled">Lancer la campagne de parrainage</a>
       </li>
       <li>
-        <a (click)="changeStep(2)" class="manage-page__content__nav__item manage-page__content__nav__item--disabled">Lancer la campagne de parrainage</a>
-      </li>
-      <li>
-        <a (click)="changeStep(3)" class="manage-page__content__nav__item manage-page__content__nav__item--disabled">Promouvoir la campagne</a>
+        <a (click)="changeStep(2)" class="manage-page__content__nav__item manage-page__content__nav__item--disabled">Promouvoir la campagne</a>
       </li>
     </ul>
     <div class="manage-page__content__body" *ngIf="step === null">
@@ -44,42 +41,41 @@
       </form>
     </div>
     <div class="manage-page__content__body" *ngIf="step === 0">
-      <h2 class="title title--main">
-        Questionnaire parrain
-      </h2>
-      <form>
-        <div class="form-group form-group--multiple">
-          <div class="form-group__item">
-            <label for="title" class="form-label">Titre:</label>
-            <input type="text" id="title" class="form-input" />
+      <div class="manage-page__content__body__header">
+        <h2 class="title title--main">
+          Questionnaire
+        </h2>
+        <div class="manage-page__content__body__header__questions">
+          <a class="manage-page__content__body__header__questions__item" *ngFor="let question of questions" (click)="changeSelectedQuestion(question.id)" [ngClass]="{'manage-page__content__body__header__questions__item--active': question.id === selectedQuestion}" >
+            {{question.id}}
+          </a>
+        </div>
+      </div>
+      <form class="manage-page__content__body__form">
+        <div class="manage-page__content__body__form__question">
+          <h3 class="title title--tiercary">Question {{getSelectedQuestion().id}}:</h3>
+          <div class="form-group form-group--multiple">
+            <div class="form-group__item">
+              <label for="godfather-{{getSelectedQuestion().id}}" class="form-label">Titre pour parrain*:</label>
+              <input type="email" id="godfather-{{getSelectedQuestion().id}}" class="form-input" [value]="getSelectedQuestion().titleGodfather" />
+            </div>
+            <div class="form-group__item">
+              <label for="godson-{{getSelectedQuestion().id}}" class="form-label">Titre pour filleul*:</label>
+              <input type="email" id="godson-{{getSelectedQuestion().id}}" class="form-input" [value]="getSelectedQuestion().titleGodson" />
+            </div>
           </div>
-          <div class="form-group__item">
-            <label for="email" class="form-label">Courriel*:</label>
-            <input type="email" id="email" class="form-input" />
+          <div class="manage-page__content__body__form__answers">
+            <div *ngFor="let answer of getSelectedQuestion().answers">
+              <label for="answer-{{answer.id}}" class="form-label">Reponse {{answer.id}}:</label>
+              <input type="email" id="answer-{{answer.id}}" class="form-input" [value]="answer.title" />
+            </div>
+            <a class="button manage-page__content__body__form__answers__button" (click)="addNewAnswer(getSelectedQuestion().id)">Ajouter une reponse</a>
           </div>
         </div>
-        <a class="button" href="#">Ajouter une question</a>
+        <a class="button" (click)="addNewQuestion()">Ajouter une question</a>
       </form>
     </div>
     <div class="manage-page__content__body" *ngIf="step === 1">
-      <h2 class="title title--main">
-        Questionnaire filleul
-      </h2>
-      <form>
-        <div class="form-group form-group--multiple">
-          <div class="form-group__item">
-            <label for="title" class="form-label">Titre:</label>
-            <input type="text" id="title" class="form-input" />
-          </div>
-          <div class="form-group__item">
-            <label for="email" class="form-label">Courriel*:</label>
-            <input type="email" id="email" class="form-input" />
-          </div>
-        </div>
-        <a class="button" href="#">Ajouter une question</a>
-      </form>
-    </div>
-    <div class="manage-page__content__body" *ngIf="step === 2">
       <h2 class="title title--main">
         Commencer la promotion
       </h2>

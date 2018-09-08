@@ -62,8 +62,51 @@
       border: 1px solid $secondary-color;
       border-radius: 5px;
 
+      &__header {
+        display: flex;
+
+        &__questions {
+          margin-left: 20px;
+          display: flex;
+          flex-wrap: wrap;
+
+          &__item {
+            background-color: $main-color;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            color: white;
+            margin: 0 5px;
+
+            &:hover {
+              cursor: pointer;
+            }
+
+            &--active {
+              background-color: $secondary-color;
+            }
+          }
+        }
+      }
+
       &__alert {
         margin: 15px 0;
+      }
+
+      &__form {
+        &__question {
+          border: 1px solid $secondary-color;
+          padding: 20px;
+          margin-bottom: 30px;
+        }
+
+        &__answers {
+          &__button {
+            margin-top: 20px;
+          }
+        }
       }
     }
   }
@@ -77,6 +120,26 @@
 
       &__nav {
         padding: 20px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .manage-page {
+    &__content {
+      &__body {
+        &__form {
+          &__answers {
+            &__list {
+              flex-direction: column;
+
+              &__item {
+                width: 100%;
+              }
+            }
+          }
+        }
       }
     }
   }
