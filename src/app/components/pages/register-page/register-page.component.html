@@ -21,6 +21,22 @@
           </div>
         </div>
         <div class="form-group">
+          <label for="first_name" class="form-label">Prénom*:</label>
+          <input formControlName="first_name" type="text" id="first_name" class="form-input" />
+          <div class="form-text form-text--right form-text--danger"
+               *ngFor="let errorMessage of registerForm.controls['first_name'].getError('apiError')">
+            {{ errorMessage }}
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="last_name" class="form-label">Nom*:</label>
+          <input formControlName="last_name" type="text" id="last_name" class="form-input" />
+          <div class="form-text form-text--right form-text--danger"
+               *ngFor="let errorMessage of registerForm.controls['last_name'].getError('apiError')">
+            {{ errorMessage }}
+          </div>
+        </div>
+        <div class="form-group">
           <label for="password" class="form-label">Mot de passe*:</label>
           <input formControlName="password" type="password" id="password" class="form-input" />
           <div class="form-text form-text--right form-text--danger"
@@ -47,7 +63,7 @@
           </button>
         </div>
       </div>
-      <div *ngIf="!registerForm.valid && hasSubmit" class="alert alert--danger">
+      <div *ngIf="!registerForm.valid && hasSubmit" class="register-page__content__alerts alert alert--danger">
         Veuillez remplir tous les champs
       </div>
     </form>

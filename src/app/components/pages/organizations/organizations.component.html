@@ -1,0 +1,58 @@
+<div class="organizations-page">
+  <div class="organizations-page__content">
+    <div class="organizations-page__content__nav">
+      <h3 class="title title--tiercary">Recherche</h3>
+      <form>
+        <div class="form-group">
+          <label class="form-label" for="search">Nom:</label>
+          <input type="text" class="form-input" id="search" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="category">Categorie:</label>
+          <select id="category" class="form-input">
+            <option>Education</option>
+            <option>Social</option>
+            <option>Technologie</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="city">Lieu:</label>
+          <input type="text" class="form-input" id="city" />
+        </div>
+      </form>
+    </div>
+    <div class="organizations-page__content__body">
+      <div class="organizations-page__content__body__title">
+        <h2 class="title title--main">
+          Trouver une organisation
+        </h2>
+      </div>
+      <div class="organizations-page__content__body__organizations">
+        <div class="organizations-page__content__body__organizations__organization" *ngFor="let organization of organizations" (click)="visitOrganization(organization.id)">
+          <div class="organizations-page__content__body__organizations__organization__header">
+            <img class="organizations-page__content__body__organizations__organization__header__image" src="../../../../assets/images/logos/{{organization.logo}}"/>
+          </div>
+          <div class="organizations-page__content__body__organizations__organization__content">
+            <div class="organizations-page__content__body__organizations__organization__content__title">
+              {{ organization.name }}
+            </div>
+            <div class="organizations-page__content__body__organizations__organization__content__details">
+              <div class="organizations-page__content__body__organizations__organization__content__details__line">
+                <div class="organizations-page__content__body__organizations__organization__content__details__line__icon">
+                  <i class="fas fa-tags"></i>
+                </div>
+                Education
+              </div>
+              <div class="organizations-page__content__body__organizations__organization__content__details__line">
+                <div class="organizations-page__content__body__organizations__organization__content__details__line__icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                Montréal, Canada
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

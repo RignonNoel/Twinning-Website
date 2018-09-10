@@ -1,0 +1,63 @@
+<div class="profile-page" *ngIf="user">
+  <div class="profile-page__header">
+    <div class="profile-page__header__details">
+      <p class="title title--main" >Bienvenue {{ user.first_name }},</p>
+      <ul class="profile-page__header__details__list">
+        <li>{{ user.email }}</li>
+      </ul>
+    </div>
+    <div *ngIf="!user.organizations.length">
+      <a class="button">Creer une organisation</a>
+    </div>
+    <div *ngIf="user.organizations.length">
+      <label class="form-label profile-page__header__details__label" for="organization">Mes organisations:</label>
+      <select class="form-input" id="organization" (change)="manage($event)">
+        <option>Choisir</option>
+        <option *ngFor="let organization of user.organizations" value="{{organization.id}}">{{ organization.name }}</option>
+      </select>
+    </div>
+  </div>
+
+  <ul class="profile-page__nav">
+    <li>
+      <a class="profile-page__nav__item">Informations personnelles</a>
+    </li>
+    <li>
+      <a class="profile-page__nav__item profile-page__nav__item--disabled">Mes demandes</a>
+    </li>
+    <li>
+      <a class="profile-page__nav__item">Mes parrains</a>
+    </li>
+    <li>
+      <a class="profile-page__nav__item profile-page__nav__item--disabled">Mes filleuls</a>
+    </li>
+  </ul>
+
+  <div class="profile-page__content">
+    <h2 class="title title--main">
+      Informations personnelles
+    </h2>
+    <form class="profile-page__content__form">
+      <div class="profile-page__content__form__part">
+        <div class="form-group">
+          <label class="form-label">Prenom:</label>
+          <input type="text" class="form-input"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Nom:</label>
+          <input type="text" class="form-input"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Courriel:</label>
+          <input type="text" class="form-input"/>
+        </div>
+      </div>
+      <div class="profile-page__content__form__part profile-page__content__form__part--main">
+        <div class="form-group">
+          <label class="form-label">Description:</label>
+          <textarea class="form-input form-input--textarea"></textarea>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

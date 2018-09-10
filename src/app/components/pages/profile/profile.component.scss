@@ -1,0 +1,130 @@
+@import '../../../../assets/scss/theme';
+@import '../../../../assets/scss/easings';
+
+.profile-page {
+  &__header {
+    background-color: $secondary-color;
+    min-height: 250px;
+    color: white;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+
+    &__details {
+      color: $main-color;
+      font-weight: 600;
+
+      &__list {
+        list-style-type: none;
+      }
+
+      &__label {
+        color: $main-color;
+        margin-top: 0;
+      }
+    }
+  }
+
+  &__nav {
+    padding: 15px 0 10px 0;
+    background-color: white;
+    list-style-type: none;
+    counter-reset: index-nav;
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid $secondary-color;
+
+    &__item {
+      display: block;
+      border-bottom: 0 solid $main-color;
+
+      &:hover {
+        color: lighten($main-color, 20);
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__content {
+    padding: 50px 20px;
+
+    &__form {
+      display: flex;
+      justify-content: space-between;
+
+      &__part {
+        flex: 1;
+
+        & + .profile-page__content__form__part {
+          padding-left: 20px;
+        }
+
+        &--main {
+          flex: 2;
+        }
+      }
+    }
+  }
+}
+
+
+@media only screen and (max-width: 1200px) {
+  .profile-page {
+    &__content {
+      flex-direction: column;
+
+      &__nav {
+        padding: 20px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .profile-page {
+    &__nav {
+      flex-direction: column;
+      align-items: center;
+
+      &__item {
+        padding: 5px;
+      }
+    }
+
+    &__content {
+      &__body {
+        &__form {
+          &__answers {
+            &__list {
+              flex-direction: column;
+
+              &__item {
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .profile-page {
+    &__header {
+      flex-direction: column;
+    }
+
+    &__content {
+      &__form {
+        flex-direction: column;
+
+        &__part {
+          & + .profile-page__content__form__part {
+            padding-left: 0;
+          }
+        }
+      }
+    }
+  }
+}

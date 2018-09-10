@@ -1,0 +1,98 @@
+@import '../../../../assets/scss/theme';
+
+.survey-page {
+  &__header {
+    background-color: $secondary-color;
+    min-height: 250px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+
+    &__logo {
+      & img {
+        max-height: 100px;
+        width: 100%;
+      }
+    }
+
+    &__text {
+      color: $main-color;
+      font-weight: 600;
+
+      &__details {
+        display: flex;
+        flex-direction: column;
+
+        &__line {
+          display: flex;
+          justify-content: flex-start;
+          line-height: 25px;
+
+          &__icon {
+            width: 30px;
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+  &__content {
+    padding: 50px 20px;
+
+    &__title {
+      text-align: center;
+    }
+
+    &__form {
+      max-width: 700px;
+      padding: 0 20px;
+      margin: auto;
+
+      &__buttons {
+        text-align: right;
+      }
+    }
+  }
+}
+
+
+@media only screen and (max-width: 1200px) {
+  .survey-page {
+    &__content {
+      flex-direction: column;
+
+      &__nav {
+        padding: 20px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .survey-page {
+    &__content {
+      &__body {
+        &__form {
+          &__answers {
+            &__list {
+              flex-direction: column;
+
+              &__item {
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .survey-page {
+    &__header {
+      flex-direction: column-reverse;
+    }
+  }
+}

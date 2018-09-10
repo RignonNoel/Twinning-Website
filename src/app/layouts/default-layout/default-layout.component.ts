@@ -4,14 +4,14 @@ import { HeaderComponent } from '../../components/header/header.component';
 @Component({
   selector: 'app-default-layout',
   template: `
-    <div id="container">
-      <div id="header">
+    <div class="container">
+      <div class="container__header">
         <app-header></app-header>
       </div>
-      <div id="content">
+      <div class="container__content">
         <router-outlet></router-outlet>
       </div>
-      <div id="footer">
+      <div class="container__footer">
         <app-footer></app-footer>
       </div>
     </div>

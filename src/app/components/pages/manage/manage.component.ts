@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {OrganizationService} from '../../../services/organization.service';
+import {ActivatedRoute, Params} from '@angular/router';
+import {Organization} from '../../../models/organization';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-manage',
@@ -8,6 +12,9 @@ import { Component, OnInit } from '@angular/core';
 export class ManageComponent implements OnInit {
 
   step: number = null;
+
+  organizationId: number;
+  organization = null;
 
   questions = [
     {
@@ -48,10 +55,45 @@ export class ManageComponent implements OnInit {
 
   selectedQuestion: number;
 
-  constructor() { }
+  organizationForm: FormGroup;
+  errors: string = null;
+
+  constructor(private organizationService: OrganizationService,
+              private activatedRoute: ActivatedRoute,
+              private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.activatedRoute.params.subscribe((params: Params) => {
+      this.organizationId = params['id'];
+      this.refreshOrganization();
+    });
     this.selectedQuestion = this.questions[0].id;
+  }
+
+  resetForm() {
+    this.organizationForm = this.formBuilder.group(
+      {
+        name: [null, Validators.required],
+        description: [null, Validators.required],
+        godson_value: [null, Validators.required],
+        godfather_value: [null, Validators.required],
+      }
+    );
+    if (this.organization) {
+      this.organizationForm.controls['name'].setValue(this.organization.name);
+      this.organizationForm.controls['description'].setValue(this.organization.description);
+      this.organizationForm.controls['godson_value'].setValue(this.organization.godson_value);
+      this.organizationForm.controls['godfather_value'].setValue(this.organization.godfather_value);
+    }
+  }
+
+  refreshOrganization() {
+    this.organizationService.get(this.organizationId).subscribe(
+      data => {
+        this.organization = new Organization(data);
+        this.resetForm();
+      }
+    );
   }
 
   changeStep(index: number) {

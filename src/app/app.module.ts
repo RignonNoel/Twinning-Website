@@ -32,6 +32,12 @@ import {AuthenticatedDirective} from './directives/authenticated.directive';
 import {UserService} from './services/user.service';
 import {Error404Component} from './components/error-404/error-404.component';
 import { ManageComponent } from './components/pages/manage/manage.component';
+import { ProfileComponent } from './components/pages/profile/profile.component';
+import { OrganizationsComponent } from './components/pages/organizations/organizations.component';
+import { OrganizationComponent } from './components/pages/organization/organization.component';
+import { SurveyComponent } from './components/pages/survey/survey.component';
+import {OrganizationService} from './services/organization.service';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 const appRoutes = [
   {
@@ -43,8 +49,24 @@ const appRoutes = [
         component: HomePageComponent,
       },
       {
-        path: 'manage',
+        path: 'profile',
+        component: ProfileComponent,
+      },
+      {
+        path: 'manage/:id',
         component: ManageComponent,
+      },
+      {
+        path: 'organizations',
+        component: OrganizationsComponent,
+      },
+      {
+        path: 'organization/:id',
+        component: OrganizationComponent,
+      },
+      {
+        path: 'survey/:id',
+        component: SurveyComponent,
       },
     ]
   },
@@ -123,9 +145,14 @@ const appRoutes = [
     MyModalOpenDirective,
     AuthenticatedDirective,
     ManageComponent,
+    ProfileComponent,
+    OrganizationsComponent,
+    OrganizationComponent,
+    SurveyComponent,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     SimpleNotificationsModule.forRoot(),
     RouterModule.forRoot(
       appRoutes,
@@ -146,6 +173,7 @@ const appRoutes = [
     MyModalService,
     ProfileService,
     UserService,
+    OrganizationService,
   ],
   bootstrap: [AppComponent]
 })

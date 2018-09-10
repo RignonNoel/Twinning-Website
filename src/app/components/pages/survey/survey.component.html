@@ -1,0 +1,41 @@
+<div class="survey-page">
+  <div class="survey-page__header">
+    <div class="survey-page__header__text">
+      <p class="title title--main">{{organization.name}}</p>
+      <div class="survey-page__header__text__details">
+        <div class="survey-page__header__text__details__line">
+          <div class="survey-page__header__text__details__line__icon">
+            <i class="fas fa-tags"></i>
+          </div>
+          Education
+        </div>
+        <div class="survey-page__header__text__details__line">
+          <div class="survey-page__header__text__details__line__icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          Montréal, Canada
+        </div>
+      </div>
+    </div>
+    <div class="survey-page__header__logo">
+      <img src="../../../../assets/images/logos/{{organization.logo}}" />
+    </div>
+  </div>
+
+  <div class="survey-page__content">
+    <div class="survey-page__content__title">
+      <h1 class="title title--main">Devenir parrain</h1>
+    </div>
+    <form class="survey-page__content__form">
+      <div class="form-group" *ngFor="let question of questions">
+        <label class="form-label">{{question.titleGodfather}}</label>
+        <select class="form-input">
+          <option *ngFor="let answer of question.answers">{{answer.title}}</option>
+        </select>
+      </div>
+      <div class="survey-page__content__form__buttons">
+        <a class="button">Envoyer</a>
+      </div>
+    </form>
+  </div>
+</div>

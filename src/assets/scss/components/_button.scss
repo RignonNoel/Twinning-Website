@@ -9,9 +9,11 @@
   font-weight: bold;
   transition: all $ease-inout-sine 300ms;
   min-width: 200px;
+  text-align: center;
 
   &:hover {
     background-color: darken($main-color, 15);
+    cursor: pointer;
   }
 
   &--danger {

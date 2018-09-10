@@ -1,5 +1,12 @@
 @import '../../../assets/scss/theme';
 
-#container {
+.container {
   background-color: $main-background;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  &__content {
+    flex: 1
+  }
 }

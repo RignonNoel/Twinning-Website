@@ -6,16 +6,29 @@
     min-height: 250px;
     color: white;
     display: flex;
-    align-items: center;
+    justify-content: space-between;
     padding: 30px;
 
-    &__progress {
-      font-size: 150px;
+    &__left {
+      display: flex;
+      align-items: center;
+
+      &__progress {
+        font-size: 150px;
+      }
+
+      &__text {
+        color: $main-color;
+        font-weight: 600;
+        margin-left: 30px;
+      }
     }
 
-    &__text {
-      color: $main-color;
-      font-weight: 600;
+    &__logo {
+      & img {
+        max-height: 100px;
+        width: 100%;
+      }
     }
  }
 

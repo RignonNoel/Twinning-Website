@@ -29,17 +29,11 @@ export class RegisterPageComponent implements OnInit {
         email: [null, Validators.required],
         first_name: [null, Validators.required],
         last_name: [null, Validators.required],
-        birth_day: [null, Validators.required],
-        birth_month: [null, Validators.required],
-        birth_year: [null, Validators.required],
-        gender: [null, Validators.required],
         password: [null, Validators.required],
         confirmation: [null, Validators.required],
       },
       {validator: [
-        this.confirmationValidator(),
-        this.monthValidator(),
-        this.yearValidator(),
+        this.confirmationValidator()
       ]}
     );
   }
@@ -53,45 +47,6 @@ export class RegisterPageComponent implements OnInit {
       if (password.value !== confirmation.value) {
         return confirmation.setErrors({
           apiError: ['La confirmation n\'est pas identique au mot de passe.']
-        });
-      }
-    };
-  }
-
-  dayValidator() {
-    return (group: FormGroup) => {
-
-      const day = group.controls['birth_day'];
-
-      if (!day.value && day.valid) {
-        return day.setErrors({
-          apiError: ['Ce champ ne peut pas etre vide.']
-        });
-      }
-    };
-  }
-
-  monthValidator() {
-    return (group: FormGroup) => {
-
-      const month = group.controls['birth_month'];
-
-      if (!month.value && month.valid) {
-        return month.setErrors({
-          apiError: ['Ce champ ne peut pas etre vide.']
-        });
-      }
-    };
-  }
-
-  yearValidator() {
-    return (group: FormGroup) => {
-
-      const year = group.controls['birth_year'];
-
-      if (!year.value && year.valid) {
-        return year.setErrors({
-          apiError: ['Ce champ ne peut pas etre vide.']
         });
       }
     };
@@ -137,19 +92,8 @@ export class RegisterPageComponent implements OnInit {
 
   register() {
     this.hasSubmit = true;
-    const form = this.registerForm;
-    if ( form.valid ) {
-      const birthdate = form.value['birth_year'] + '-' + form.value['birth_month'] + '-' + form.value['birth_day'];
-      const userData = {
-        first_name: form.value['first_name'],
-        last_name: form.value['last_name'],
-        email: form.value['email'],
-        birthdate: birthdate,
-        gender: form.value['gender'],
-      };
-
-      const user = new User(userData);
-      this.userService.create(user, form.value['password']).subscribe(
+    if ( this.registerForm.valid ) {
+      this.userService.create(this.registerForm.value, this.registerForm.value['password']).subscribe(
         data => {
           this.router.navigate(['/register/confirmation']);
         },

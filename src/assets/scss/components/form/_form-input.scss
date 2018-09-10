@@ -39,13 +39,16 @@
   }
 
   &--textarea {
-    height: 200px;
+    height: 184px;
     max-width: 100%;
     padding: 5px;
-    border: 1px solid $main-color;
-    border-radius: 3px;
+    margin-top: 10px;
+    background-color: darken($main-background, 5);
     -moz-appearance: textfield-multiline;
     -webkit-appearance: textarea;
+    border-top: 1px solid lightgrey;
+    border-left: 1px solid lightgrey;
+    border-right: 1px solid lightgrey;
   }
 
   &:disabled {
@@ -61,6 +64,6 @@
   }
 
   &.ng-invalid.ng-touched  {
-    border-color: $color-danger;
+    border-bottom-color: $color-danger;
   }
 }
